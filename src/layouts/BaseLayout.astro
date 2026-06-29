@@ -1,0 +1,157 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "GreaterThan — Strategy & design partner, Auckland NZ. Senior marketing consulting for principal-led businesses." } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title} — GreaterThan</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/logo-indigo.svg" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/" aria-label="GreaterThan home">
+        <img src="/assets/logo-indigo.svg" alt="GreaterThan" height="42" width="auto" />
+      </a>
+
+      <div class="nav-links">
+        <a href="/case-studies">Work</a>
+        <a href="/services">Services</a>
+        <a href="/about#approach">Approach</a>
+        <a href="/blog">Thinking</a>
+        <a href="/about">About</a>
+      </div>
+
+      <div class="nav-cta">
+        <a href="/contact" class="btn btn--nav">Start a project <span class="arrow">→</span></a>
+      </div>
+
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="/case-studies">Work</a>
+  <a href="/services">Services</a>
+  <a href="/about#approach">Approach</a>
+  <a href="/blog">Thinking</a>
+  <a href="/about">About</a>
+  <a href="/contact" class="mobile-cta btn btn--primary">Start a project →</a>
+</div>
+
+<!-- PAGE CONTENT -->
+<main>
+  <slot />
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="/assets/logo-white.svg" alt="GreaterThan" class="footer-logo" height="42" width="auto" />
+        <p class="footer-tagline">Greater than the sum of its parts.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Office</h4>
+        <p class="footer-address">
+          Auckland, New Zealand<br />
+          <a href="mailto:hello@wearegreaterthan.co.nz">hello@wearegreaterthan.co.nz</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <span>© 2026 GreaterThan. All rights reserved.</span>
+      <span>Greater than the sum of its parts.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Add .js class for scroll reveal
+  document.documentElement.classList.add('js');
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches && revealEls.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // Failsafe: reveal all after 1.4s
+    setTimeout(() => {
+      revealEls.forEach(el => el.classList.add('revealed'));
+    }, 1400);
+  }
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.contains('open');
+    mobileMenu?.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(!isOpen));
+    mobileMenu?.setAttribute('aria-hidden', String(isOpen));
+  });
+
+  // Close mobile menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger?.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    });
+  });
+</script>
+
+</body>
+</html>
