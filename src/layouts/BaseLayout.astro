@@ -6,15 +6,24 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = "GreaterThan — Strategy & design partner, Auckland NZ. Senior marketing consulting for principal-led businesses." } = Astro.props;
+const { title, description = "GreaterThan: Strategy & design partner, Auckland NZ. Senior marketing consulting for principal-led businesses." } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KSZJEND1R4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KSZJEND1R4');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
-  <title>{title} — GreaterThan</title>
+  <title>{title} | GreaterThan</title>
   <link rel="icon" type="image/svg+xml" href="/assets/logo-indigo.svg" />
 </head>
 <body>
@@ -30,7 +39,7 @@ const { title, description = "GreaterThan — Strategy & design partner, Aucklan
       <div class="nav-links">
         <a href="/case-studies">Work</a>
         <a href="/services">Services</a>
-        <a href="/about#approach">Approach</a>
+        <a href="/approach">Approach</a>
         <a href="/blog">Thinking</a>
         <a href="/about">About</a>
       </div>
@@ -52,7 +61,7 @@ const { title, description = "GreaterThan — Strategy & design partner, Aucklan
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
   <a href="/case-studies">Work</a>
   <a href="/services">Services</a>
-  <a href="/about#approach">Approach</a>
+  <a href="/approach">Approach</a>
   <a href="/blog">Thinking</a>
   <a href="/about">About</a>
   <a href="/contact" class="mobile-cta btn btn--primary">Start a project →</a>
@@ -140,6 +149,7 @@ const { title, description = "GreaterThan — Strategy & design partner, Aucklan
     const isOpen = mobileMenu?.classList.contains('open');
     mobileMenu?.classList.toggle('open');
     hamburger.setAttribute('aria-expanded', String(!isOpen));
+    hamburger.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
     mobileMenu?.setAttribute('aria-hidden', String(isOpen));
   });
 
@@ -148,9 +158,11 @@ const { title, description = "GreaterThan — Strategy & design partner, Aucklan
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
       hamburger?.setAttribute('aria-expanded', 'false');
+      hamburger?.setAttribute('aria-label', 'Open menu');
       mobileMenu.setAttribute('aria-hidden', 'true');
     });
   });
+
 </script>
 
 </body>

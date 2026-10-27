@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Strategy & Design Partner — Auckland, NZ">
+<BaseLayout title="Strategy & Design Partner, Auckland, NZ">
 
 <!-- 1. HERO -->
 <section class="hero">
@@ -9,9 +9,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="hero__inner">
       <p class="hero__eyebrow">
         <span class="dot"></span>
-        Strategy &amp; design partner — Auckland, NZ
+        Strategy &amp; design partner, Auckland, NZ
       </p>
-      <h1 class="hero__h1">Build things <em>worth</em> building.</h1>
+      <h1 class="hero__h1">Build things <em>worth</em> building</h1>
       <p class="hero__lead">Most businesses reach a point where their marketing needs to be more strategic. You know where you want to go. You need a senior marketing partner who gets the business, not just the campaigns.</p>
       <div class="hero__actions">
         <a href="/contact" class="btn btn--primary-dark">Start a project <span class="arrow">→</span></a>
@@ -24,7 +24,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="stat-band__label">Years in brand and marketing</div>
         </div>
         <div class="stat-band__item reveal d1">
-          <div class="stat-band__num">10<em>+</em></div>
+          <div class="stat-band__num">14<em>+</em></div>
           <div class="stat-band__label">Principal-led businesses served</div>
         </div>
         <div class="stat-band__item reveal d2">
@@ -39,13 +39,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <!-- 2. TRUST MARQUEE -->
 <section class="marquee-section">
   <p class="marquee-label">Trusted by leaders at</p>
-  <div class="marquee-track">
+  <div class="marquee-track" id="marquee-track">
     <div class="marquee-inner">
       <span>Prodotti</span>
       <span>·</span>
       <span>Longame</span>
       <span>·</span>
-      <span>Anteris Psychiatry</span>
+      <span>Anteris</span>
       <span>·</span>
       <span>Validus</span>
       <span>·</span>
@@ -60,12 +60,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <span>Production Partners</span>
       <span>·</span>
       <span>SMP&amp;C</span>
-      <!-- Duplicate for seamless loop -->
+      <span>·</span>
+      <span>Alpine Print</span>
+      <span>·</span>
+      <span>ComplyWith</span>
+      <span>·</span>
+      <span>De Gustibus</span>
+      <span>·</span>
+      <span>SAS Business Advisory Services</span>
+      <span>·</span>
+      <!-- Duplicate for seamless loop — each copy carries its own trailing
+           separator so both halves are pixel-identical in width, which is
+           what keeps the -50% loop reset flicker-free. -->
       <span>Prodotti</span>
       <span>·</span>
       <span>Longame</span>
       <span>·</span>
-      <span>Anteris Psychiatry</span>
+      <span>Anteris</span>
       <span>·</span>
       <span>Validus</span>
       <span>·</span>
@@ -80,6 +91,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <span>Production Partners</span>
       <span>·</span>
       <span>SMP&amp;C</span>
+      <span>·</span>
+      <span>Alpine Print</span>
+      <span>·</span>
+      <span>ComplyWith</span>
+      <span>·</span>
+      <span>De Gustibus</span>
+      <span>·</span>
+      <span>SAS Business Advisory Services</span>
+      <span>·</span>
     </div>
   </div>
 </section>
@@ -99,10 +119,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="container">
     <span class="eyebrow eyebrow--light reveal">What we do</span>
     <div class="section-head reveal d1">
-      <h2 style="color: var(--gt-white)">Three layers, <em>one</em> partner.</h2>
+      <h2 style="color: var(--gt-white)">Three layers, <em>one</em> partner</h2>
     </div>
     <p style="font-size: var(--fs-18); color: rgba(255,255,255,0.65); max-width: 60ch; margin-bottom: 0;" class="reveal d2">
-      Every business needs different things at different times. GreaterThan works across three connected layers — alone or together, shaped to what your business needs right now.
+      Every business needs different things at different times. GreaterThan works across three connected layers, alone or together, shaped to what your business needs right now.
     </p>
 
     <div class="services-grid">
@@ -166,7 +186,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="work-header">
       <div class="section-head reveal" style="margin-bottom: 0">
         <span class="eyebrow">Selected work</span>
-        <h2>Recent <em>projects</em>.</h2>
+        <h2>Recent <em>projects</em></h2>
       </div>
       <a href="/case-studies" class="btn btn--ghost reveal">View all work <span class="arrow">→</span></a>
     </div>
@@ -180,7 +200,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p>Led a comprehensive rebrand from Prodotti di Italia to Prodotti, then continued as fractional marketing manager across the full range.</p>
           <div class="work-card__meta">
             <span class="work-card__tag">Rebrand</span>
-            <span class="work-card__date">2022–ongoing</span>
+            <span class="work-card__date">Since 2022</span>
           </div>
         </div>
       </div>
@@ -193,7 +213,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p>Led brand strategy and identity creation for a premium coffee brand entering a competitive market.</p>
           <div class="work-card__meta">
             <span class="work-card__tag">Brand strategy</span>
-            <span class="work-card__date">2025–ongoing</span>
+            <span class="work-card__date">Since 2025</span>
           </div>
         </div>
       </div>
@@ -219,7 +239,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="container">
     <span class="eyebrow reveal">How we work</span>
     <div class="section-head reveal d1">
-      <h2>A way of working that <em>shows</em>.</h2>
+      <h2>A way of working that <em>shows</em></h2>
     </div>
 
     <div class="approach-grid">
@@ -236,7 +256,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="approach-cell reveal d2">
         <div class="approach-cell__num">03</div>
         <h3>Execute or enable</h3>
-        <p>Deliver the strategy through the right people and resources — whether that's direct execution, vendor oversight, or coaching your team.</p>
+        <p>Deliver the strategy through the right people and resources, whether that's direct execution, vendor oversight, or coaching your team.</p>
       </div>
       <div class="approach-cell reveal d3">
         <div class="approach-cell__num">04</div>
@@ -296,7 +316,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="work-header">
       <div class="section-head reveal" style="margin-bottom: 0">
         <span class="eyebrow">Thinking</span>
-        <h2>Notes from the <em>work</em>.</h2>
+        <h2>Notes from the <em>work</em></h2>
       </div>
       <a href="/blog" class="btn btn--ghost reveal">All writing <span class="arrow">→</span></a>
     </div>
